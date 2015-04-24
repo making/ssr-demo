@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello World</title>
+</head>
+<body>
+<div id="content" th:utext="${markup}"></div>
+<script src="bundle.js"></script>
+<script type="text/javascript"
+        th:inline="javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        var initialData = JSON.parse(/*[[${initialData}]]*/ '{"id": -1, "content": "初期データ"}');
+        renderOnClient(initialData);
+    }, false);
+</script>
+</body>
+</html>
